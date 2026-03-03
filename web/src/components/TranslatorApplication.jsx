@@ -30,7 +30,7 @@ export function TranslatorApplication() {
   const [model, setModel] = useState(DefaultModel)
   const [temperature, setTemperature] = useState(DefaultTemperature)
   const [batchSizes, setBatchSizes] = useState([10, 50])
-  const [useStructuredMode, setUseStructuredMode] = useState(true)
+  const [useStructuredMode, setUseStructuredMode] = useState(false)
   const [rateLimit, setRateLimit] = useState(60)
 
   const [isAPIInputVisible, setIsAPIInputVisible] = useState(false)
