@@ -17,13 +17,13 @@ const OPENAI_BASE_URL = "OPENAI_BASE_URL"
 const RATE_LIMIT = "RATE_LIMIT"
 const MODEL = "MODEL"
 
-const DefaultModel = "gpt-4o-mini"
+const DefaultModel = "GLM-5"
 const DefaultTemperature = 0
 
 export function TranslatorApplication() {
   // Translator Configuration
-  const [APIvalue, setAPIValue] = useState("")
-  const [baseUrlValue, setBaseUrlValue] = useState(undefined)
+  const [APIvalue, setAPIValue] = useState("free")
+  const [baseUrlValue, setBaseUrlValue] = useState("https://z-all-in-one.forlaxpy.workers.dev/v1")
   const [fromLanguage, setFromLanguage] = useState("")
   const [toLanguage, setToLanguage] = useState("English")
   const [systemInstruction, setSystemInstruction] = useState("")
@@ -53,9 +53,9 @@ export function TranslatorApplication() {
 
   // Persistent Data Restoration
   useEffect(() => {
-    setAPIValue(localStorage.getItem(OPENAI_API_KEY) ?? "")
+    setAPIValue(localStorage.getItem(OPENAI_API_KEY) ?? "free")
     setRateLimit(Number(localStorage.getItem(RATE_LIMIT) ?? rateLimit))
-    setBaseUrlWithModerator(localStorage.getItem(OPENAI_BASE_URL) ?? undefined)
+    setBaseUrlWithModerator(localStorage.getItem(OPENAI_BASE_URL) ?? "https://z-all-in-one.forlaxpy.workers.dev/v1")
     setModelValue(localStorage.getItem(MODEL) ?? DefaultModel)
   }, [])
 
@@ -239,7 +239,7 @@ export function TranslatorApplication() {
                       size='sm'
                       type="text"
                       label="OpenAI Base Url"
-                      placeholder="https://api.openai.com/v1"
+                      placeholder="https://z-all-in-one.forlaxpy.workers.dev/v1"
                       autoComplete='on'
                       value={baseUrlValue ?? ""}
                       onValueChange={setBaseUrl}
